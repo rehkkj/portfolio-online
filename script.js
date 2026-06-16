@@ -202,9 +202,14 @@ animateCounters();
    ===================================================== */
 
 // 
+
 (function() {
-  emailjs.init("GwCcDmPbNlR2Qkut_");
+  return emailjs.init({
+    publicKey: "GwCcDmPbNlR2Qkut_",
+  });
 })();
+
+
 
 const form     = document.getElementById('contactForm');
 const sysNotif = document.getElementById('sysNotification');
