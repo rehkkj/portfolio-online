@@ -201,9 +201,9 @@ animateCounters();
    CONTACT FORM — EMAILJS ✅
    ===================================================== */
 
-// ⚠️ COLOQUE SUA PUBLIC KEY AQUI
+// 
 (function() {
-  emailjs.init("T1VROgbtqLJ08RiuQ");
+  emailjs.init("GwCcDmPbNlR2Qkut_");
 })();
 
 const form     = document.getElementById('contactForm');
