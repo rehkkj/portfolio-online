@@ -204,7 +204,7 @@ animateCounters();
 // 
 
 (function() {
-  return emailjs.init({
+  emailjs.init({
     publicKey: "GwCcDmPbNlR2Qkut_",
   });
 })();
