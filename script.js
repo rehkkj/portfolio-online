@@ -99,38 +99,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
       if (p.x < 0 || p.x > W) p.vx *= -1;
       if (p.y < 0 || p.y > H) p.vy *= -1;
-
-      const dx = p.x - mouse.x;
-      const dy = p.y - mouse.y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 120) {
-        p.x += dx / dist * 1.2;
-        p.y += dy / dist * 1.2;
-      }
     });
-
-    for (let i = 0; i < points.length; i++) {
-      for (let j = i + 1; j < points.length; j++) {
-        const dx = points[i].x - points[j].x;
-        const dy = points[i].y - points[j].y;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-        const MAX = 130;
-
-        if (dist < MAX) {
-          const alpha = (1 - dist / MAX) * 0.4;
-          ctx.beginPath();
-          ctx.moveTo(points[i].x, points[i].y);
-          ctx.lineTo(points[j].x, points[j].y);
-          ctx.strokeStyle = `rgba(124, 58, 237, ${alpha})`;
-          ctx.stroke();
-        }
-      }
-
-      ctx.beginPath();
-      ctx.arc(points[i].x, points[i].y, 1.5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(191, 122, 254, 0.6)';
-      ctx.fill();
-    }
 
     requestAnimationFrame(drawMesh);
   }
@@ -151,12 +120,7 @@ function initScrollReveal() {
     '.sobre-grid, .section-header, .skill-tile, .project-card, .contato-grid, .sobre-stats .stat'
   );
 
-  targets.forEach((el, i) => {
-    el.classList.add('reveal');
-    if (el.classList.contains('skill-tile') || el.classList.contains('project-card') || el.classList.contains('stat')) {
-      el.style.transitionDelay = `${i * 0.05}s`;
-    }
-  });
+  targets.forEach(el => el.classList.add('reveal'));
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -170,84 +134,41 @@ function initScrollReveal() {
 initScrollReveal();
 
 /* =====================================================
-   CONTADOR
+   CONTATO — FORMSPREE ✅
    ===================================================== */
-function animateCounters() {
-  const counters = document.querySelectorAll('.stat-num');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const target = parseInt(e.target.dataset.target);
-        let current = 0;
-
-        const timer = setInterval(() => {
-          current += Math.ceil(target / 40);
-          e.target.textContent = current;
-          if (current >= target) clearInterval(timer);
-        }, 40);
-
-        observer.unobserve(e.target);
-      }
-    });
-  });
-
-  counters.forEach(el => observer.observe(el));
-}
-
-animateCounters();
-
-/* =====================================================
-   CONTACT FORM — EMAILJS ✅
-   ===================================================== */
-
-// 
-
-(function() {
-  emailjs.init({
-    publicKey: "GwCcDmPbNlR2Qkut_",
-  });
-})();
-
-
 
 const form     = document.getElementById('contactForm');
 const sysNotif = document.getElementById('sysNotification');
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', async function(e) {
   e.preventDefault();
-
-  const nome     = form.querySelector('#nome').value.trim();
-  const email    = form.querySelector('#email').value.trim();
-  const mensagem = form.querySelector('#mensagem').value.trim();
-
-  if (!nome || !email || !mensagem) return;
 
   const btn = form.querySelector('button');
   btn.disabled = true;
   btn.textContent = "Enviando...";
 
-  emailjs.send("service_a4uawpk", "template_kcnt2jm", {
-    nome: nome,
-    email: email,
-    mensagem: mensagem,
-    date: new Date().toLocaleString()
-  })
-  .then(() => {
+  const data = new FormData(form);
+
+  try {
+    await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
     sysNotif.classList.add('show');
     setTimeout(() => sysNotif.classList.remove('show'), 4000);
+
     form.reset();
 
-    btn.disabled = false;
-    btn.textContent = "Enviar Mensagem";
-  })
-  .catch((erro) => {
-    console.error("Erro:", erro);
+  } catch (error) {
     alert("Erro ao enviar mensagem");
+  }
 
-    btn.disabled = false;
-    btn.textContent = "Enviar Mensagem";
-  });
+  btn.disabled = false;
+  btn.textContent = "Enviar Mensagem";
 });
 
 /* =====================================================
@@ -261,3 +182,4 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     target.scrollIntoView({ behavior: 'smooth' });
   });
 });
+``
