@@ -18,9 +18,11 @@
 
 <body>
 
+    <!-- ========== CURSOR PERSONALIZADO ========== -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
+    <!-- ========== NAVBAR ========== -->
     <nav class="navbar" id="navbar">
         <div class="nav-logo">RP<span class="dot">.</span></div>
         <ul class="nav-links">
@@ -29,49 +31,268 @@
             <li><a href="#projetos" class="nav-link">projetos</a></li>
             <li><a href="#contato" class="nav-link">contato</a></li>
         </ul>
-        <button class="nav-toggle" id="navToggle">
+        <button class="nav-toggle" id="navToggle" aria-label="menu">
             <span></span><span></span><span></span>
         </button>
     </nav>
 
-    <section class="hero">
-        <canvas id="heroCanvas"></canvas>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+
+        <!-- Canvas para mesh animado -->
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+
+        <!-- Linha de scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span class="scroll-text">scroll</span>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow" data-aos="fade-up">Análise & Desenvolvimento de Sistemas</p>
+
+            <!-- Nome dividido: outlined + solid -->
+            <h1 class="hero-name">
+                <span class="name-outlined" id="nameOutlined">RENNAN</span>
+                <span class="name-solid" id="nameSolid">OLIVEIRA</span>
+            </h1>
+
+            <p class="hero-tagline" data-aos="fade-up" data-aos-delay="200">
+                Construindo interfaces que <em>encantam</em><br />
+                e código que <em>escala</em>.
+            </p>
+
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="350">
+                <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                <a href="#contato" class="btn-ghost">Contato</a>
+            </div>
+        </div>
+
+        <!-- Badge flutuante de status -->
+        <div class="available-badge">
+            <span class="status-dot"></span>
+            Disponível para projetos
+        </div>
     </section>
 
-    <!-- CONTATO -->
+    <!-- ========== SOBRE ========== -->
+    <section class="sobre" id="sobre">
+        <div class="section-inner">
+
+            <div class="sobre-grid">
+                <!-- Texto -->
+                <div class="sobre-text">
+                    <p class="section-label">// sobre mim</p>
+                    <h2 class="section-title">Código.<br />Criatividade.<br />Comprometimento.</h2>
+                    <p class="sobre-body">
+                        Olá! Sou <strong>Rennan de Oliveira Penga</strong>, estudante de Análise e Desenvolvimento de Sistemas, com
+                        foco em Front-end. Sou uma pessoa dedicada e procuro manter tudo sempre organizado. Tenho muita
+                        curiosidade, o que me leva a buscar entender a fundo qualquer dúvida ou problema que surja,
+                        pesquisando e aprendendo até encontrar a melhor forma de resolver.
+                    </p>
+
+                    <p class="sobre-body">
+                        Atualmente, estou focado em desenvolver minhas habilidades em programação e aprimorar meu
+                        inglês. Possuo nível intermediário de inglês, com boa compreensão de leitura e escuta, embora
+                        ainda esteja evoluindo na fala. Em espanhol, tenho nível avançado, com boa compreensão e
+                        comunicação tanto escrita quanto verbal.
+                    </p>
+                    </p>
+                    <div class="sobre-stats">
+                        <div class="stat">
+                            <span class="stat-num" data-target="6">0</span><span class="stat-plus">+</span>
+                            <p>Projetos</p>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num" data-target="1">0</span><span class="stat-plus">+</span>
+                            <p>Anos estudando</p>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span>
+                            <p>Dedicação</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Imagem / visual -->
+                <div class="sobre-visual">
+                    <div class="sobre-card">
+                        <div class="card-glow"></div>
+                        <div class="card-content">
+                            <div class="terminal-bar">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="terminal-title">rennan.js</span>
+                            </div>
+                            <pre class="code-snippet"><code><span class="c-keyword">const</span> <span class="c-var">dev</span> = {
+  <span class="c-prop">nome</span>: <span class="c-str">"Rennan Penga"</span>,
+  <span class="c-prop">foco</span>: <span class="c-str">"Front-end"</span>,
+  <span class="c-prop">stack</span>: [<span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>, <span class="c-str">"JS"</span>],
+  <span class="c-prop">objetivo</span>: <span class="c-str">"Crescer"</span>,
+  <span class="c-prop">disponivel</span>: <span class="c-bool">true</span>,
+  <span class="c-method">contatar</span>: () <span class="c-keyword">=></span> {
+    <span class="c-keyword">return</span> <span class="c-str">"Vamos construir!"</span>;
+  }
+};</code></pre>
+                            <p class="cursor-blink">█</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== HABILIDADES ========== -->
+    <section class="habilidades" id="habilidades">
+        <div class="section-inner">
+
+            <div class="section-header">
+                <p class="section-label">// habilidades</p>
+                <h2 class="section-title">Stack & Ferramentas</h2>
+                <p class="section-sub">Tecnologias que uso para construir experiências digitais.</p>
+            </div>
+
+            <!-- Grade de skills estilo "Periodic Table" -->
+            <div class="skills-grid" id="skillsGrid">
+
+                <div class="skill-tile featured" data-competencies="">
+                    <span class="skill-num">01</span>
+                    <span class="skill-name">HTML5</span>
+                    <span class="skill-category">Base</span>
+                </div>
+
+                <div class="skill-tile featured" data-competencies="">
+                    <span class="skill-num">02</span>
+                    <span class="skill-name">CSS3</span>
+                    <span class="skill-category">Estilo</span>
+                </div>
+
+                <div class="skill-tile featured" data-competencies="">
+                    <span class="skill-num">03</span>
+                    <span class="skill-name">JavaScript</span>
+                    <span class="skill-category">Lógica</span>
+                </div>
+
+                <div class="skill-tile" data-competencies="">
+                    <span class="skill-num">04</span>
+                    <span class="skill-name">Figma</span>
+                    <span class="skill-category">Design</span>
+                </div>
+
+                <div class="skill-tile" data-competencies="">
+                    <span class="skill-num">05</span>
+                    <span class="skill-name">Responsivo</span>
+                    <span class="skill-category">UX</span>
+                </div>
+
+                <div class="skill-tile featured" data-competencies="">
+                    <span class="skill-num">06</span>
+                    <span class="skill-name">Power BI</span>
+                    <span class="skill-category">Análise</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== PROJETOS ========== -->
+    <section class="projetos" id="projetos">
+        <div class="section-inner">
+
+            <div class="section-header">
+                <p class="section-label">// projetos</p>
+                <h2 class="section-title">Trabalhos Recentes</h2>
+                <p class="section-sub">Passe o mouse sobre cada projeto para explorar.</p>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+
+                <article class="project-card" data-title="Site-Login" data-desc="Site de login com design moderno e responsivo, utilizando HTML, CSS e JavaScript."
+                    data-tags="HTML, CSS, JavaScript" data-demo="https://rehkkj.github.io/site-login/"
+                    data-source="https://github.com/rehkkj/site-login"
+                    style="background-image: url(./imgs/projeto01.png);">
+                </article>
+
+                <article class="project-card" data-title="Tec-Blog" data-desc="Site de tecnologia com foco em tutoriais e artigos."
+                    data-tags="HTML, CSS" data-demo="https://rehkkj.github.io/site-tecblog-curso/"
+                    data-source="https://github.com/rehkkj/site-tecblog-curso"
+                    style="background-image: url(./imgs/projeto02.png)">
+                </article>
+
+                <article class="project-card" data-title="Sidean" data-desc="Descrição breve do projeto aqui."
+                    data-tags="HTML, CSS, JS" data-demo="https://rehkkj.github.io/projeto-sidean/"
+                    data-source="https://github.com/rehkkj/projeto-sidean"
+                    style="background-image: url(./imgs/projeto03.png)">
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== CONTATO ========== -->
     <section class="contato" id="contato">
         <div class="section-inner">
 
             <div class="contato-grid">
 
+                <!-- CTA esquerdo -->
                 <div class="contato-cta">
                     <p class="section-label">// contato</p>
                     <h2 class="contato-heading">Vamos<br /><span class="accent">Construir</span><br />Juntos.</h2>
+                    <p class="contato-sub">
+                        Aberto a oportunidades de trabalho, freelas e colaborações.
+                        Me manda uma mensagem — responderei em até 24h.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://github.com/rehkkj" target="_blank" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.298 24 12c0-6.627-5.373-12-12-12z" />
+                            </svg>
+                            GitHub
+                        </a>
+                        <a href="https://www.linkedin.com/in/rennan-oliveira-426320283/" target="_blank" class="social-link"
+                            aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                            </svg>
+                            LinkedIn
+                        </a>
+                        <a href="mailto:rennanpenga@gmail.com" class="social-link" aria-label="Email">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            Email
+                        </a>
+                    </div>
                 </div>
 
-                <!-- ✅ FORMULÁRIO CORRIGIDO -->
+                <!-- Formulário -->
                 <div class="contato-form-wrap">
-
-                    <form 
-                        class="contato-form" 
-                        id="contactForm" 
-                        action="https://formspree.io/f/mpqeelgl"
-                        method="POST"
-                        novalidate>
+                    <form class="contato-form" id="contactForm" novalidate>
 
                         <div class="field-group">
-                            <input type="text" id="nome" name="nome" required placeholder=" " />
+                            <input type="text" id="nome" name="nome" required placeholder=" " autocomplete="off" />
                             <label for="nome">Nome</label>
+                            <span class="field-line"></span>
                         </div>
 
                         <div class="field-group">
-                            <input type="email" id="email" name="email" required placeholder=" " />
+                            <input type="email" id="email" name="email" required placeholder=" " autocomplete="off" />
                             <label for="email">E-mail</label>
+                            <span class="field-line"></span>
                         </div>
 
                         <div class="field-group">
                             <textarea id="mensagem" name="mensagem" required placeholder=" " rows="4"></textarea>
                             <label for="mensagem">Mensagem</label>
+                            <span class="field-line"></span>
                         </div>
 
                         <button type="submit" class="btn-submit">
@@ -80,13 +301,13 @@
                         </button>
 
                     </form>
-
                 </div>
 
             </div>
 
         </div>
 
+        <!-- Notificação de sistema -->
         <div class="sys-notification" id="sysNotification">
             <span class="sys-icon">✓</span>
             <div>
@@ -97,17 +318,22 @@
 
     </section>
 
+    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="footer-inner">
             <p class="footer-logo">RP<span class="dot">.</span></p>
-            <p class="footer-copy">© <span id="year"></span> Rennan Penga.</p>
+            <p class="footer-copy">© <span id="year"></span> Rennan Penga. Todos os direitos reservados.</p>
+            <p class="footer-made">Feito com código & café.</p>
         </div>
     </footer>
 
+    <!-- ========== TOOLTIP de skill (injetado via JS) ========== -->
     <div class="skill-tooltip" id="skillTooltip"></div>
 
-    <!-- ✅ SÓ SEU JS -->
-    <script src="script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
